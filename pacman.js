@@ -4,9 +4,39 @@ let lives = 2;
 
 
 // Define your ghosts here
+const inky = {
+  menu_option: '1',
+  name: 'Inky',
+  colour: 'Red',
+  character: 'Shadow',
+  edible: false
+};
 
-// replace this comment with your four ghosts setup as objects
+const coolGuy = {
+  menu_option: '2',
+  name: 'Cool Guy',
+  colour: 'Blue',
+  character: 'Gangsta',
+  edible: false
+};
 
+const thanos = {
+  menu_option: '3',
+  name: 'Thanos',
+  colour: 'purple',
+  character: 'God',
+  edible: false
+};
+
+const adamSandler = {
+  menu_option: '4',
+  name: 'Adam Sandle',
+  colour: 'purple',
+  character: 'Billy Madison',
+  edible: false
+};
+
+const ghost =[inky, coolGuy, thanos, adamSandler];
 
 // Draw the screen functionality
 function drawScreen() {
@@ -30,6 +60,10 @@ function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
   console.log('(q) Quit');
+  console.log('(1) Eat Inky');
+  console.log('(2) Eat Cool Guy');
+  console.log('(3) Eat Thanos');
+  console.log('(4) Eat Adam Sandler');
 }
 
 function displayPrompt() {
@@ -44,6 +78,23 @@ function eatDot() {
   score += 10;
 }
 
+function eatGhost(ghost) {
+  if (ghost.edible == true) {
+    console.log(`You ate the ${ghost.colour}!`);
+    ghost.edible = false;
+  } else if (ghost.edible == false){
+    console.log(`${ghost.name} is not edible. You loose 1 life`);
+    lives -= 1;
+    checkLives();
+  }
+}
+
+function checkLives() {
+  if (lives < 0) {
+    console.log('No more lives!');
+    process.exit();
+   }
+}
 
 // Process Player's Input
 function processInput(key) {
@@ -54,6 +105,18 @@ function processInput(key) {
       break;
     case 'd':
       eatDot();
+      break;
+    case '1':
+      eatGhost(inky);
+      break;
+    case '2':
+      eatGhost(coolGuy);
+      break;
+    case '3':
+      eatGhost(thanos);
+      break;
+    case '4':
+      eatGhost(adamSandler); 
       break;
     default:
       console.log('\nInvalid Command!');
