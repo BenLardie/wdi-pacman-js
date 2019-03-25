@@ -1,6 +1,7 @@
 // Setup initial game stats
 let score = 0;
 let lives = 2;
+let powerPellets = 4;
 
 
 // Define your ghosts here
@@ -54,16 +55,19 @@ function clearScreen() {
 
 function displayStats() {
   console.log(`Score: ${score}     Lives: ${lives}`);
+  console.log('');
+  console.log(`Power-pellets: ${powerPellets}`);
 }
 
 function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
-  console.log('(q) Quit');
+  console.log('(p) Eat Power-pellet');
   console.log('(1) Eat Inky');
   console.log('(2) Eat Cool Guy');
   console.log('(3) Eat Thanos');
   console.log('(4) Eat Adam Sandler');
+  console.log('(q) Quit');
 }
 
 function displayPrompt() {
