@@ -65,10 +65,14 @@ function displayMenu() {
   if (powerPellets > 0) {
   console.log('(p) Eat Power-pellet');
 }
-  console.log('(1) Eat Inky');
-  console.log('(2) Eat Cool Guy');
-  console.log('(3) Eat Thanos');
-  console.log('(4) Eat Adam Sandler');
+ghost.forEach(function(ghost) {
+  if (ghost.edible) {
+    can_eat = '(edible)'
+  } else {
+    can_eat = '(inedible)'
+  }
+  console.log(`(${ghost['menu_option']}) Eat ${ghost.name} ${can_eat}`)
+})
   console.log('(q) Quit');
 }
 
