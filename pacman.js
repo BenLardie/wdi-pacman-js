@@ -62,7 +62,9 @@ function displayStats() {
 function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
+  if (powerPellets > 0) {
   console.log('(p) Eat Power-pellet');
+}
   console.log('(1) Eat Inky');
   console.log('(2) Eat Cool Guy');
   console.log('(3) Eat Thanos');
