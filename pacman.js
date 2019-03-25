@@ -84,10 +84,10 @@ function eatDot() {
 
 function eatGhost(ghost) {
   if (ghost.edible == true) {
-    console.log(`You ate the ${ghost.colour}!`);
+    console.log(`\nYou ate the ${ghost.colour}!`);
     ghost.edible = false;
   } else if (ghost.edible == false){
-    console.log(`${ghost.name} is not edible. You loose 1 life`);
+    console.log(`\n${ghost.name} is not edible. You loose 1 life`);
     lives -= 1;
     checkLives();
   }
@@ -100,6 +100,15 @@ function checkLives() {
    }
 }
 
+function eatPower() {
+  ghost.forEach(function(ghost) {
+  ghost.edible = true;
+  });
+  powerPellets -= 1;
+  console.log('\nTHE POWER IS MINE!');
+  score += 50;
+}
+
 // Process Player's Input
 function processInput(key) {
   switch(key) {
@@ -109,6 +118,15 @@ function processInput(key) {
       break;
     case 'd':
       eatDot();
+      break;
+    case 'p':
+      if (powerPellets > 0) { 
+        eatPower();
+        break; 
+      } else {
+        console.log('\nNo more pellets');
+        break;
+      }
       break;
     case '1':
       eatGhost(inky);
