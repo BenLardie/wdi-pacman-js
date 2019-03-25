@@ -84,6 +84,8 @@ function eatDot() {
 
 function eatGhost(ghost) {
   if (ghost.edible == true) {
+    ghost.edible == false;
+    score += 200;
     console.log(`\nYou ate the ${ghost.colour}!`);
     ghost.edible = false;
   } else if (ghost.edible == false){
